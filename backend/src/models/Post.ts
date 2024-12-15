@@ -15,13 +15,13 @@ export class Post extends Model<Post>{
     @Column({
         allowNull: false
     })
-    content: string =''
+    content?: string
 
     @Column({
         allowNull: false,
         unique: true
     })
-    slug: string =''
+    slug?: string
 
     @ForeignKey(()=>User)
     @Column({

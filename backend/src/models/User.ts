@@ -2,6 +2,8 @@ import { Table, Column, Model, HasMany, } from 'sequelize-typescript';
 import { Post } from './Post';
 import { Comment } from './Comment';
 import { Token } from './Token';
+import { Category } from './Category';
+import { Tag } from './Tag';
 
 @Table
 export class User extends Model<User> {
@@ -10,18 +12,18 @@ export class User extends Model<User> {
   @Column({
     allowNull: false
   })
-  name: string = ""
+  name?: string
 
   @Column({
     unique: true,
     allowNull: false
   })
-  email: string = ""
+  email?: string
 
   @Column({
     allowNull: false
   })
-  password: string = ""
+  password?: string
 
   @HasMany(()=>Post)
   posts: Post[] = [];
@@ -32,4 +34,9 @@ export class User extends Model<User> {
   @HasMany(()=>Token)
   tokens?: Token[] = [];
 
+  @HasMany(()=>Category)
+  categories?: Category[] = [];
+
+  @HasMany(()=>Tag)
+  tags?: Tag[] = [];
 };

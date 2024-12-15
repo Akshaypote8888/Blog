@@ -10,6 +10,12 @@ export class Token extends Model<Token>{
     })
     token?: string
 
+    @Column({
+        type: DataType.ENUM('activation','reset'),
+        allowNull: false
+    })
+
+    type?: 'activation' | 'reset';
 
     @ForeignKey(()=>User)
     @Column({
@@ -19,11 +25,5 @@ export class Token extends Model<Token>{
 
     @BelongsTo(()=>User)
     user?:User;
-
-    @Column({
-        type: DataType.ENUM('activation','reset')
-    })
-
-    type?: 'activation' | 'reset';
 
 }

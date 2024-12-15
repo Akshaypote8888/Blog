@@ -8,6 +8,4 @@ export const connection = new Sequelize({
     database: process.env.DB_NAME,
     port: process.env.DB_PORT as any || 3306,
     models: [__dirname + '/../models']
-})
-
-connection.sync({ alter: true });
+});

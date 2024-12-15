@@ -7,7 +7,9 @@ import { Post } from "./Post";
 export class PostTag extends Model<PostTag>{
 
     @ForeignKey(()=>Post)
-    @Column
+    @Column({
+        allowNull: false
+    })
     PostId?: number
 
     @ForeignKey(()=>Tag)
